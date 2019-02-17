@@ -46,8 +46,8 @@ class App extends Component {
   }
 
   render() {
-    let rows = this.state.candidates.slice(0, 30).map(x => {
-      return <p>{x}</p>
+    let rows = this.state.candidates.slice(0, 100).map(x => {
+      return <article class="results-word">{x}</article>
     });
     return (
       <div className="app">
@@ -62,13 +62,11 @@ class App extends Component {
             onChange={this.handleChange} />
         </form>
 
-      <p><em>{this.state.value.length} char(s). {this.state.candidates.length} result(s). Showing the first {rows.length}.</em></p>
-        {rows}
+        <p><em>{this.state.value.length} char(s). {this.state.candidates.length} result(s). Showing the first {rows.length}.</em></p>
+        <div class="results-container">{rows} </div>
       </div>
     )
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-console.log("DONE: src/index.js");

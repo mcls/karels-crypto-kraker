@@ -20,6 +20,13 @@ input, p {
   font-size: 18px;
 }
 
+p {
+  line-height: 1.2;
+  margin: 2px;
+  padding: 0;
+
+}
+
 .input-pattern {
   padding: 10px;
   width: 90%;
@@ -31,10 +38,20 @@ input, p {
   letter-spacing: 3px;
 }
 
+.results-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-p {
-  line-height: 1.2;
-  margin: 2px;
-  padding: 0;
-
+.results-word {
+  flex-grow: 1;
+  margin: auto;
+  padding: 5px;
+}
+.results-word:hover {
+  background-color: #eee;
 }
