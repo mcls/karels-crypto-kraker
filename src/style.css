@@ -5,7 +5,7 @@ html, body {
 }
 
 h1 {
-  text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0px;
+  font-size: 36px;
 }
 
 h1, h2, h3, p {
@@ -20,15 +20,17 @@ input, p {
   font-size: 18px;
 }
 
-input {
+.input-pattern {
   padding: 10px;
-  min-width: 600px;
+  width: 90%;
+  max-width: 800px;
   margin-bottom: 10px;
   border: 3px solid #eee;
   text-align: center;
   font-size: 24px;
   letter-spacing: 3px;
 }
+
 
 p {
   line-height: 1.2;

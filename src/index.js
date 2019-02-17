@@ -54,7 +54,12 @@ class App extends Component {
         <h1>Karels Crypto Kraker</h1>
 
         <form onSubmit={this.handleSubmit}>
-          <input autofocus="true" name="pattern" value={this.state.value} onChange={this.handleChange} />
+          <input
+            autofocus="true"
+            className="input-pattern"
+            name="pattern"
+            value={this.state.value}
+            onChange={this.handleChange} />
         </form>
 
       <p><em>{this.state.value.length} char(s). {this.state.candidates.length} result(s). Showing the first {rows.length}.</em></p>
