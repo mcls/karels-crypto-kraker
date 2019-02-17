@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npx webpack",
     "start": "npx webpack-dev-server --open",
+    "gh-pages": "npx webpack && cp -r dist/ docs/",
     "watch": "npx webpack --watch"
   },
   "dependencies": {
