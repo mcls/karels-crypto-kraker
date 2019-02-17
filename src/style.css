@@ -2,10 +2,11 @@ html, body {
   text-align: center;
   font-family: Arial, sans-serif;
   background-color: #fcfcfc;
+  font-size: 18px;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2rem;
 }
 
 h1, h2, h3, p {
@@ -17,7 +18,7 @@ em {
 }
 
 input, p {
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 p {
@@ -52,6 +53,7 @@ p {
   margin: auto;
   padding: 5px;
 }
+
 .results-word:hover {
   background-color: #eee;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import words from './words'
+import WordMatcher from './WordMatcher'
 import './style.css'
 
 class App extends Component {
@@ -26,28 +27,12 @@ class App extends Component {
   }
 
   findMatchingWords(pattern) {
-    return words.filter(word => {
-      if ( word.length != pattern.length ) {
-        // Different size
-        return false;
-      }
-
-      for (var x = 0, c=''; c = pattern.charAt(x); x++) {
-        if (c == '.') {
-          continue;
-        }
-        if (word.charAt(x) != c) {
-          // Different char
-          return false;
-        }
-      }
-      return true;
-    });
+    return new WordMatcher(words).findMatching(pattern);
   }
 
   render() {
     let rows = this.state.candidates.slice(0, 100).map(x => {
-      return <article class="results-word">{x}</article>
+      return <article class="results-word">{x}</article>;
     });
     return (
       <div className="app">
@@ -58,6 +43,7 @@ class App extends Component {
             autofocus="true"
             className="input-pattern"
             name="pattern"
+            placeholder="kr.k.r"
             value={this.state.value}
             onChange={this.handleChange} />
         </form>
