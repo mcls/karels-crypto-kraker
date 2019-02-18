@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
+var config = {
   entry: {
     index: './src/index.js',
     words: './src/words.js'
@@ -51,4 +51,18 @@ module.exports = {
     })
   ]
 
+};
+
+module.exports = (env, argv) => {
+
+  // https://webpack.js.org/concepts/mode/#mode-development
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+
+  if (argv.mode === 'production') {
+    //...
+  }
+
+  return config;
 };

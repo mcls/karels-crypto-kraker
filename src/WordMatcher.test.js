@@ -20,3 +20,18 @@ test('finds words with wildcards', () => {
   expect(matcher.findMatching('.a.')).toEqual(['bar', 'bat', 'cat']);
   expect(matcher.findMatching('...')).toEqual(['bar', 'bat', 'bot', 'cat']);
 });
+
+test('treats words with ij correctly', () => {
+  var words = [
+    'as',
+    'ijs',
+    'jij',
+    'yyy',
+  ];
+  var matcher = new WordMatcher(words);
+  expect(matcher.findMatching('.s')).toEqual(['as', 'ijs']);
+  expect(matcher.findMatching('ij.')).toEqual(['ijs']);
+  expect(matcher.findMatching('..')).toEqual(['as', 'ijs', 'jij']);
+  expect(matcher.findMatching('...')).toEqual(['yyy']);
+  expect(matcher.findMatching('ys')).toEqual([]);
+});

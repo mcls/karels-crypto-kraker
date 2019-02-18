@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npx webpack",
-    "start": "npx webpack-dev-server --open",
-    "gh-pages": "npx webpack && cp -r dist/ docs/",
+    "build": "npx webpack --mode=production",
+    "start": "npx webpack-dev-server --open --mode=development",
+    "gh-pages": "npx webpack --mode=production && cp -r dist/ docs/",
     "test": "npx jest",
     "watch": "npx webpack --watch"
   },
   "dependencies": {
+    "awesome-debounce-promise": "^1.0.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
   },
