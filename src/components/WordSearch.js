@@ -123,14 +123,14 @@ class ResultSummary extends Component {
     if ( shown > 0 ) {
       if ( shown < total ) {
         return (
-          <p><em>{total} mogelijkheden, waarvan {shown} weergegeven</em></p>
+          <p><em>{total} woorden die passen, waarvan {shown} weergegeven:</em></p>
         );
       } else if ( shown == 1 ) {
         return (
-          <p><em>1 mogelijkheid</em></p>
+          <p><em>1 woord dat past:</em></p>
         );
       } else {
-        return <p><em>{total} mogelijkheden</em></p>;
+        return <p><em>{total} woorden die passen:</em></p>;
       }
     }
     return null;
