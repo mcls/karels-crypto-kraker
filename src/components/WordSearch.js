@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import Pluralize from 'react-pluralize'
 
 import WordMatcher from '../WordMatcher'
+import LetterBlocks from './LetterBlocks'
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
+import { Link } from 'react-router-dom'
 
 export class WordSearch extends Component {
   constructor(props) {
@@ -33,7 +36,8 @@ export class WordSearch extends Component {
   }
 
   handleChange(event) {
-    const pattern = event.target.value;
+    // Don't allow whitespace characters. Replace them by wildcards instead
+    const pattern = event.target.value.replace(/\s+/g, '.');
     this.setState({value: pattern});
     this.updateWordCandidates(pattern);
 
@@ -59,7 +63,8 @@ export class WordSearch extends Component {
             value={this.state.value} />
         </form>
 
-        <p><em>{this.state.value.length} karakter(s)</em></p>
+        <p><em><Pluralize singular={'karakter'} plural={'karakters'} count={this.state.value.length} /></em></p>
+        <LetterBlocks value={this.state.value} />
 
         <WordCandidates candidates={this.state.candidates} didNonEmptySearch={this.state.didNonEmptySearch} />
       </React.Fragment>
@@ -81,13 +86,27 @@ class WordCandidates extends Component {
       results = rows;
     } else if (didNonEmptySearch) {
       results = <p><em>Niets gevonden...</em></p>;
+    } else {
+      let examples = [
+        'kr.k.r',
+        'kr...w..rd',
+      ];
+      examples = examples.map((ex) => {
+        return <li key={ex}><a href={'/?q=' + ex}>{ex}</a></li>;
+      });
+      results = (
+        <div>
+        <p>Probeer een voorbeeld:</p>
+        <ul className="list-examples">{examples}</ul>
+        </div>
+      );
     }
 
     return (
-      <div>
+      <React.Fragment>
         <ResultSummary shown={rows.length} total={candidates.length} />
         <div className="results-container">{results}</div>
-      </div>
+      </React.Fragment>
     )
   }
 }

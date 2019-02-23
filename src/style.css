@@ -28,6 +28,15 @@ p {
 
 }
 
+a,
+a:hover,
+a:visited,
+a:active {
+  color: #38f;
+}
+
+
+
 .input-pattern {
   padding: 10px;
   width: 90%;
@@ -56,4 +65,32 @@ p {
 
 .results-word:hover {
   background-color: #eee;
+}
+
+.letter-blocks {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  border-collapse: collapse;
+  margin: 1rem auto;
+}
+
+.letter-block {
+  background: #fff;
+  border: 3px solid #eee;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.list-examples {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.list-examples a {
+  display: inline-block;
+  padding: 0.1rem;
 }

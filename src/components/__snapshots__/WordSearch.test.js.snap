@@ -20,15 +20,46 @@ Array [
   </form>,
   <p>
     <em>
-      0
-       karakter(s)
+      <span
+        className={null}
+        style={Object {}}
+      >
+        0 karakters
+      </span>
     </em>
   </p>,
-  <div>
-    <div
-      className="results-container"
-    >
-      
+  <table
+    className="letter-blocks"
+  >
+    <tbody>
+      <tr />
+    </tbody>
+  </table>,
+  <div
+    className="results-container"
+  >
+    <div>
+      <p>
+        Probeer een voorbeeld:
+      </p>
+      <ul
+        className="list-examples"
+      >
+        <li>
+          <a
+            href="/?q=kr.k.r"
+          >
+            kr.k.r
+          </a>
+        </li>
+        <li>
+          <a
+            href="/?q=kr...w..rd"
+          >
+            kr...w..rd
+          </a>
+        </li>
+      </ul>
     </div>
   </div>,
 ]
