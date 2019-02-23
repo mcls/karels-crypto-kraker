@@ -78,7 +78,11 @@ class WordCandidates extends Component {
     const didNonEmptySearch = this.props.didNonEmptySearch;
 
     let rows = candidates.slice(0, 100).map(x => {
-      return <article className="results-word" key={x}>{x}</article>;
+      return (
+        <article className="results-word" key={x}>
+        <a href={'https://www.woorden.org/woord/' + x} target="blank" rel="noopener">{x}</a>
+        </article>
+      );
     });
 
     let results = '';
