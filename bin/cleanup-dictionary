@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Generate a new word list without less relevant terms, like those with spaces
+# or apostrophes.
+
+cat ./src/data/dutch-words-original.txt \
+  | grep -v "[' ]" \
+  | sort > ./src/data/dutch-words.txt
