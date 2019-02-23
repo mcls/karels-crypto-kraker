@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with default values 1`] = `
+Array [
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      autoComplete="off"
+      autoFocus={true}
+      className="input-pattern"
+      maxLength={100}
+      name="pattern"
+      onChange={[Function]}
+      placeholder="kr.k.r"
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+  </form>,
+  <p>
+    <em>
+      0
+       karakter(s)
+    </em>
+  </p>,
+  <div>
+    <div
+      className="results-container"
+    >
+      
+    </div>
+  </div>,
+]
+`;

@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import words from '../words'
+
 import WordMatcher from '../WordMatcher'
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
 export class WordSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', didNonEmptySearch: false, candidates: []};
+    this.state = {
+      value: props.initialValue || '',
+      didNonEmptySearch: false,
+      candidates: []
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    const wordMatcher = new WordMatcher(words);
+    const wordMatcher = new WordMatcher(this.props.words || []);
     this.updateWordCandidates = AwesomeDebouncePromise((pattern) => {
       let candidates = [];
       if (pattern.length >= 1) {
@@ -19,6 +23,9 @@ export class WordSearch extends Component {
       }
       this.setState({candidates: candidates, didNonEmptySearch: (pattern != '')});
     }, 150);
+    if ( props.initialValue ) {
+      this.updateWordCandidates(props.initialValue);
+    }
   }
 
   handleSubmit(event) {
@@ -29,6 +36,10 @@ export class WordSearch extends Component {
     const pattern = event.target.value;
     this.setState({value: pattern});
     this.updateWordCandidates(pattern);
+
+    if (this.props.onSearchChange) {
+      this.props.onSearchChange(pattern);
+    }
   }
 
   render() {
