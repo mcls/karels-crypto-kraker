@@ -52,7 +52,9 @@ export class WordSearch extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
+            autoCapitalize="off"
             autoComplete="off"
+            autoCorrect="off"
             autoFocus={true}
             className="input-pattern"
             maxLength={100}
